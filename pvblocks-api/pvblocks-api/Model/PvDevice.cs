@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace pvblocks_api.Model
 {
@@ -17,6 +18,7 @@ namespace pvblocks_api.Model
         /// <summary>
         /// Indicates if this is the meteo system
         /// </summary>
+        [JsonIgnore]
         public bool IsMeteoSystem { get; set; } = false;
 
         /// <summary>
@@ -76,10 +78,13 @@ namespace pvblocks_api.Model
         /// <summary>
         /// SensorId to be used for STC/NOCT corrections
         /// </summary>
+        [JsonIgnore]
         public int? IrradianceId { get; set; }
         /// <summary>
         /// SensorId to be used for STC/NOCT corrections
         /// </summary>
+
+        [JsonIgnore] 
         public int? TemperatureId { get; set; }
         /// <summary>
         /// amount of string that are used for the single cells
@@ -88,11 +93,13 @@ namespace pvblocks_api.Model
         /// <summary>
         /// Flag to set if Pv Device is deleted
         /// </summary>
+        [JsonIgnore]
         public bool Deleted { get; set; } = false;
         
         /// <summary>
         /// Sensors attached to this Pv Device
         /// </summary>
+        [JsonIgnore]
         public List<AttachedSensor> AttachedSensors { get; set; } = null!;
     }
 }

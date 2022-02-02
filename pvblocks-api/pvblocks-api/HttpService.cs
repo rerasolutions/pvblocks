@@ -160,10 +160,7 @@ namespace pvblocks_api
                 Console.WriteLine(e);
 
             }
-
             return default(T);
-
-
         }
 
 
@@ -186,7 +183,6 @@ namespace pvblocks_api
 
                     _tokenCreated = DateTime.Now;
                     return true;
-
                 }
             }
             catch (Exception e)
