@@ -18,6 +18,9 @@ namespace pvblocks_api
         Task<bool> IsV1ApiAvailable();
 
         Task<bool> IsLoggedIn();
+
+ 
+
         #region Sensor Manager
 
         /// <summary>
