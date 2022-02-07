@@ -1,9 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>pvblocks_api</RootNamespace>
     <Nullable>enable</Nullable>
+	<PackageId>pvblocks-api-client</PackageId>
+	<Version>1.0.0</Version>
+	<Authors>Erik Haverkamp</Authors>
+	<Company>ReRa Solutions BV</Company>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<Copyright>ReRa Solutions BV 2021</Copyright>
+	<PackageProjectUrl>https://www.pvblocks.com</PackageProjectUrl>
+	<Description>The package can be used to access the pvblocks system API.</Description>
+	<RepositoryUrl>https://github.com/rerasolutions/pvblocks</RepositoryUrl>
+	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance><PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
