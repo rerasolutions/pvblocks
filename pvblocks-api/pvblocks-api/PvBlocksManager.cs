@@ -79,6 +79,12 @@ namespace pvblocks_api
             return await _httpService.Get<Sensor>($"Sensor/{sensorId}");
         }
 
+        public async Task DeleteSensor(int id)
+        {
+            await _httpService.Delete<int>($"Sensor/{id}");
+        }
+
+
         public async Task DeleteAttachedSensors(int pvdeviceId)
         {
             await _httpService.Delete<int>($"pvdevice/{pvdeviceId}/attachedSensors");
@@ -176,7 +182,13 @@ namespace pvblocks_api
             return pvblock;
         }
 
+        public async Task DeletePvBlock(int id)
+        {
+            await _httpService.Delete<int>($"Block/{id}");
+        }
 
+
+       
         public async Task<(int, int)> GetIvCurveParameters(int pvblockId)
         {
             var json = await _httpService.Get<JsonDocument>($"Command/ivCurveParameters/{pvblockId}");

@@ -45,6 +45,8 @@ namespace pvblocks_api
         /// <exception cref="HttpServiceException">Thrown if the API does not work as expected</exception>
         Task<Sensor> GetSensor(int sensorId);
 
+        Task DeleteSensor(int id);
+
         Task DeleteAttachedSensors(int pvdeviceId);
 
         Task AttachSensor(int pvdeviceId, int sensorId);
@@ -139,6 +141,14 @@ namespace pvblocks_api
         /// <param name="id"></param>
         /// <returns>The PvBlock or null</returns>
         Task<PvBlock> GetPvBlock(int id);
+
+        /// <summary>
+        /// Gets the PvBlock by its database id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>The PvBlock or null</returns>
+        Task DeletePvBlock(int id);
+
 
         Task EnableSensor(int id, bool enable);
         Task<(int,int)> GetIvCurveParameters(int pvblockId);
