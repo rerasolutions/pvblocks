@@ -329,5 +329,7 @@ namespace pvblocks_api
         Task SetOpenWeatherApiKey(string apikey);
 
         Task RR1751_SetConfiguration(Guid guid, MsXxConfig config);
+
+        Task ResetPvblock(int pvblockid);
     }
 }

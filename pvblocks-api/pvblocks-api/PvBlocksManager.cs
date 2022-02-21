@@ -187,8 +187,22 @@ namespace pvblocks_api
             await _httpService.Delete<int>($"Block/{id}");
         }
 
+        public async Task ResetPvblock(int pvblockid)
+        {
+            if (pvblockid == 0)
+            {
+                await _httpService.Get<PvBlock>($"Hardware/reset-controller");
+            }
+            else
+            {
+                var pvblock = await GetPvBlock(pvblockid);
+                if (pvblock != null)
+                {
+                    await _httpService.Get<PvBlock>($"Hardware/{pvblock.UniqueIdentifier.ToString()}/reset");
+                }
+            }
+        }
 
-       
         public async Task<(int, int)> GetIvCurveParameters(int pvblockId)
         {
             var json = await _httpService.Get<JsonDocument>($"Command/ivCurveParameters/{pvblockId}");
@@ -545,6 +559,9 @@ namespace pvblocks_api
         }
 
 #endregion
+
+
+
 
         public async Task ShutdownHost()
         {
