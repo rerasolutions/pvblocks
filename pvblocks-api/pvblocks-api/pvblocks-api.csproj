@@ -5,7 +5,7 @@
     <RootNamespace>pvblocks_api</RootNamespace>
     <Nullable>enable</Nullable>
 	<PackageId>pvblocks-api-client</PackageId>
-	<Version>1.2.0</Version>
+	<Version>1.3.0</Version>
 	<Authors>Erik Haverkamp</Authors>
 	<Company>ReRa Solutions BV</Company>
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>

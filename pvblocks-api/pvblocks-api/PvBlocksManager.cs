@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Reflection.Emit;
 using System.Text.Json;
 using System.Threading.Tasks;
 using pvblocks_api.Exceptions;
@@ -235,9 +237,26 @@ namespace pvblocks_api
                 new BlockUserInfo() {Label = label, Position = 0});
         }
 
-#endregion
 
-#region Hardware Manager
+        public async Task<BlockStatus> DirectPvBlockStatus(int pvblockid)
+        {
+
+            var status = new BlockStatus(0,0,0, new List<byte>());
+
+            var pvblock = await GetPvBlock(pvblockid);
+            if (pvblock != null)
+            {
+                return await GetBlockStatus(pvblock.UniqueIdentifier);
+            }
+
+
+            return status;
+
+        }
+
+        #endregion
+
+        #region Hardware Manager
 
         public async Task BlinkLed(Guid id)
         {

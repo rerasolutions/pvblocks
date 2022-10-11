@@ -172,6 +172,10 @@ namespace pvblocks_api
         /// <returns></returns>
         Task UpdatePvBlockLabel(int id, string label);
 
+        Task<BlockStatus> DirectPvBlockStatus(int pvblockid);
+
+
+
         #endregion
 
         #region Hardware Manager
