@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -105,6 +106,22 @@ namespace pvblocks_api
             }
         }
 
+        public async Task<T> PostFile<T>(string uri, string formName, string fileName)
+        {
+            try
+            {
+                var request = new HttpRequestMessage(HttpMethod.Post, uri);
+                var content = new MultipartFormDataContent();
+                content.Add(new StreamContent(new FileStream(fileName, FileMode.Open)), formName, fileName);
+                request.Content = content;
+                return await sendRequest<T>(request);
+            }
+            catch (Exception e)
+            {
+                throw new HttpServiceException();
+            }
+        }
+
         // helper methods
         public record ApikeyLoginRecord(string key);
 
@@ -114,7 +131,7 @@ namespace pvblocks_api
             return expired;
         }
 
-        private async Task<T> sendRequest<T>(HttpRequestMessage request)
+        private async Task<T?> sendRequest<T>(HttpRequestMessage request)
         {
             if (_token == null || TokenExpired())
             {

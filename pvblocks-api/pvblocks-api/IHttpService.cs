@@ -11,5 +11,6 @@ namespace pvblocks_api
         Task<T> Post<T>(string uri, object value);
         Task<T> Delete<T>(string uri);
         Task<T> Put<T>(string uri, object value);
+        Task<T> PostFile<T>(string uri, string formName, string fileName);
     }
 }

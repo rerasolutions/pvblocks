@@ -194,6 +194,14 @@ namespace pvblocks_api
         /// <returns>The block status</returns>
         Task<BlockStatus> GetBlockStatus(Guid id);
 
+        /// <summary>
+        /// Upgrade a pvblocks firmware
+        /// </summary>
+        /// <param name="id">Id of the block to update</param>
+        /// <param name="fileName">Firmware upgrade file</param>
+        /// <returns></returns>
+        Task UpgradePvBlock(Guid id, string fileName);
+
         #endregion
 
         #region Direct measurement manager

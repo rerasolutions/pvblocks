@@ -268,7 +268,12 @@ namespace pvblocks_api
             return await _httpService.Get<BlockStatus>($"Hardware/{id}/status");
         }
 
-#endregion
+        public async Task UpgradePvBlock(Guid id, string fileName)
+        {
+            await _httpService.PostFile<string>($"Hardware/{id}/firmwareUpdate", "files", fileName);
+        }
+
+        #endregion
 
 #region Direct measurement manager
 
